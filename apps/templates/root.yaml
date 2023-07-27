@@ -14,6 +14,16 @@ spec:
     repoURL: https://github.com/0xByteLeon/kube-argocd-go.git
     targetRevision: HEAD
   syncPolicy:
+    syncOptions:
+      - ServerSideApply=true
+      - CreateNamespace=true
+
     automated:
-      prune: true
       selfHeal: true
+      prune: true
+
+  ignoreDifferences:
+    - group: monitoring.coreos.com
+      kind: ServiceMonitor
+      jqPathExpressions:
+        - .metadata.annotations
