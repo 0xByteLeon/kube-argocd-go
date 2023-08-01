@@ -16,4 +16,7 @@ kubectl get secret argocd-initial-admin-secret -o jsonpath="{.data.password}" | 
 
 #Sync apps
 helm template apps/ | kubectl apply -f -
+
+#Delete argocd owner helm, let argocd manage itself
+kubectl delete secret -l owner=helm,name=argo-cd
 ```
