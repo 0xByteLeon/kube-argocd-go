@@ -17,7 +17,7 @@ minikube tunnel
 kubectl get secret argocd-initial-admin-secret -o jsonpath="{.data.password}" | base64 -d
 
 #Sync apps
-helm template apps/ | kubectl apply -f -
+helm template charts/root-app/ | kubectl apply -f -
 
 #Delete argocd owner helm, let argocd manage itself
 kubectl delete secret -l owner=helm,name=argo-cd
