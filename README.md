@@ -7,6 +7,8 @@ minikube start --driver=hyperkit
 ```bash
 helm repo add argo-cd https://argoproj.github.io/argo-helm
 
+helm dep update charts/argo-cd/
+
 helm install argo-cd charts/argo-cd/ --namespace argocd --create-namespace
 
 #before access argocd server
