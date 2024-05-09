@@ -9,7 +9,7 @@ spec:
   project: default
   source:
     repoURL: https://helm.elastic.co
-    chart: eck-stack
+    chart: eck-operator
     targetRevision: 2.12.1
   destination:
     server: https://kubernetes.default.svc
